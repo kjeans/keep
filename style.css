@@ -1,0 +1,105 @@
+body{
+background-color: #666666;
+margin: 0;
+padding: 0;
+font-family: calibri;
+}
+
+.all{
+padding-top: 20px;
+}
+
+.sidebar{
+background-color: #333333;
+width: 230px;
+height: 100%;
+float: left;
+}
+
+.sidebar p{
+height: 60%;
+}
+
+.sidebar a,
+.sidebar a:hover,
+.sidebar a:visited,
+.sidebar a:active{
+color: #cccccc;
+padding: 5px 0 5px 5px;
+border-bottom: 2px solid #666666;
+font-size: 28px;
+display: block;
+text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar a:visited,
+.sidebar a:active{
+text-decoration: underline;
+}
+
+.sidebar input{
+font-size: 18px;
+border: 3px solid #cccccc;
+margin-left: 5px;
+}
+
+.home input{
+font-size: 18px;
+border: 3px solid #cccccc;
+margin-left: 25px;
+}
+
+.home a.tekst,
+.home a.tekst:hover,
+.home a.tekst:visited,
+.home a.tekst:active{
+color: #cccccc;
+text-decoration: none;
+font-size: 22px;
+margin: 50px 50px 0 50px;
+}
+
+
+.home a.tekst:hover,
+.home a.tekst:visited,
+.home a.tekst:active{
+text-decoration: underline;
+}
+
+.home a.button{
+background-color: #cccccc;
+color: black;
+font-size: 28px;
+border-radius: 10px;
+padding: 0 5px 0 5px;
+}
+
+.home img{
+margin-top: 10px;
+}
+
+.bladernote{
+float: left;
+margin: 50px 10px 10px 50px;
+width: 250px;
+height: 250px;
+border-collapse: collapse;
+}
+
+.bladernote td,
+.bladernote th{
+margin: 0;
+padding: 0;
+color: black;
+}
+
+.bladernote .naam{
+padding: 3px 5px;
+background-color: #ffff00;
+}
+
+.bladernote .omschrijving{
+padding: 3px 5px;
+background-color: #ffff66;
+}

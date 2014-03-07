@@ -14,20 +14,22 @@ printf('	<a href="#">Contactpersonen</a>');
 printf('	<p class="empty"></p>');
 printf('	<input type="search" placeholder="Persoon zoeken"/>');
 printf('</div>');
+
 printf('<div class="all">');
+
 printf('<div class="home">');
 printf('<a href="#" class="tekst">Meest recent</a>');
 printf('<a href="#" class="tekst">Herinnering</a>');
 printf('<a href="#" class="tekst">Afgerond</a>');
 printf('<select class="sort">');
-printf('<option value="datumop" selected="selected">Datum oplopend</option>');
-printf('<option value="datumaf" selected="">Datum aflopend</option>');
-printf('<option value="contactop" selected="">Contactpersoon oplopend</option>');
-printf('<option value="contactaf" selected="">Contactpersoon aflopend</option>');
+printf('	<option value="datumop" selected="selected">Datum oplopend</option>');
+printf('	<option value="datumaf" selected="">Datum aflopend</option>');
+printf('	<option value="contactop" selected="">Contactpersoon oplopend</option>');
+printf('	<option value="contactaf" selected="">Contactpersoon aflopend</option>');
 printf('</select>');
 printf('<input type="search" placeholder="Zoeken in notities"/>');
-printf('<a href="#"><img src="images/noteplus.png"></a>');
 printf('</div>');
+
 printf('');
 printf('');
 	for($i = 1; $i <=8; $i++){

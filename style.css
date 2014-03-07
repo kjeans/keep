@@ -5,10 +5,6 @@ padding: 0;
 font-family: calibri;
 }
 
-.all{
-padding-top: 20px;
-}
-
 .sidebar{
 background-color: #333333;
 width: 230px;
@@ -47,7 +43,7 @@ margin-left: 5px;
 .home input{
 font-size: 18px;
 border: 3px solid #cccccc;
-margin-left: 25px;
+margin: 0 50px 0 50px;
 }
 
 .home a.tekst,
@@ -57,7 +53,7 @@ margin-left: 25px;
 color: #cccccc;
 text-decoration: none;
 font-size: 22px;
-margin: 50px 50px 0 50px;
+margin: 0 50px 0 50px;
 }
 
 
@@ -75,8 +71,8 @@ border-radius: 10px;
 padding: 0 5px 0 5px;
 }
 
-.home img{
-margin-top: 10px;
+.home .sort{
+margin: 0 50px 0 50px;
 }
 
 .bladernote{

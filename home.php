@@ -28,7 +28,6 @@ printf('</select>');
 printf('<input type="search" placeholder="Zoeken in notities"/>');
 printf('<a href="#"><img src="images/noteplus.png"></a>');
 printf('</div>');
-printf('fdsdf');
 printf('');
 printf('');
 	for($i = 1; $i <=8; $i++){

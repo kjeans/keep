@@ -32,8 +32,8 @@
 			return $html;
 		}
 		
-		public static function selectbox($name, $class, $value, $options, $nullOption=false, $extraArguments=''){
-			$html  = '<select ' . $extraArguments;
+		public static function selectbox($name, $class, $value, $options, $nullOption=false){
+			$html  = '<select ';
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' class="%s"', $class);	
 			$html .= '>';
@@ -47,16 +47,7 @@
 				$html .= htmlentities($nullOption, ENT_QUOTES, 'UTF-8');
 				$html .= '</option>';
 			}
-			foreach ($options as $optionvalue => $optionlabel){
-				$html .= '<option';
-				$html .= sprintf(' value="%s"', htmlentities($optionvalue, ENT_QUOTES, 'UTF-8'));
-				if($value == $optionvalue){
-					$html .= ' selected="selected"';
-				}
-				$html .= '>';
-				$html .= htmlentities($optionlabel, ENT_QUOTES, 'UTF-8');
-				$html .= '</option>';
-			}
+			
 			$html .= '</select>';
 			
 			return $html;
@@ -64,13 +55,13 @@
 		
 		public static function kleurbox($name, $class, $value, $options){
 			$html  = '<input type="hidden"';
-			$html .= sprintf(' id="%s_dd_target"', $name);
+			$html .= sprintf(' id="%s"', $name);
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' value="%s"', htmlentities($value, ENT_QUOTES, 'UTF-8'));
 			$html .= '>';
 			$html .= '<select';
-			$html .= sprintf(' id="%s_dd"', $name);
-			$html .= sprintf(' class="ddslick kleurbox %s"', $class);	
+			$html .= sprintf(' id="%s"', $name);
+			$html .= sprintf(' class="kleurbox %s"', $class);	
 			$html .= '>';
 			foreach ($options as $option){
 				$html .= '<option';

@@ -1,0 +1,224 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+html, body{
+background-color: #666666;
+font-family: calibri;
+width: 100%;
+height: 100%;
+background-size: cover;
+
+}
+
+
+/* all div (Notities & header boven) */
+
+
+.clear {
+clear: both;
+}
+
+.outside{
+width: 100%;
+margin: 0;
+padding: 0;
+background-color: #333333;
+}
+
+.all{
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+border-collapse: collapse;
+background-color: #666666;
+background-size: cover;
+}
+
+.all .home{
+background-color: #666666;
+}
+
+
+
+/* Sidebar */
+
+.sidebar{
+background-color: #333333;
+width: 230px;
+height: 100%;
+float: left;
+margin: 0;
+padding: 0;
+}
+
+.sidebarleft ul{
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.sidebarleft li{
+border-bottom: 2px solid #666666;
+margin: 0;
+padding: 0;
+}
+
+.sidebarleft li:last-child{
+border-bottom: none;
+}
+
+.sidebarleft a,
+.sidebarleft a:visited,
+.sidebarleft a:active,
+.sidebarleft a:hover{
+display: block;
+padding: 5px 0 5px 5px;
+color: #cccccc;
+text-decoration: none;
+font-size: 28px;
+}
+
+.sidebarleft input{
+font-size: 18px;
+border: 3px solid #cccccc;
+margin-left: 10px;
+margin-top: 300px;
+}
+
+
+/* Notities */
+
+.bladernote{
+margin: 50px 10px 10px 50px;
+width: 250px;
+height: 250px;
+border-collapse: collapse;
+display: inline-block;
+}
+
+.bladernote a,
+.bladernote a:hover,
+.bladernote a:active,
+.bladernote a:visited{
+text-decoration: none;
+color: black;
+}
+
+
+.bladernote .naam{
+padding: 3px 5px;
+background-color: #ffff00;
+font-size: 24px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+}
+
+.bladernote .omschrijving{
+padding: 3px 5px;
+background-color: #ffff66;
+font-size: 16px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+
+/* header boven */
+
+.header{
+background-color: #333333;
+padding: 0;
+margin: 0;
+height: 67px;
+border-bottom: 2px solid: #666666;
+}
+
+.header ul.content{
+text-align: center;
+display: inline;
+font-size: 28px;
+padding: 10px 0 5px 0;
+}
+
+.header ul.content li{
+padding-right: 40px;
+display: inline;
+}
+
+.header a{
+color: #cccccc;
+text-decoration: none;
+}
+
+.header a:hover,
+.header a:active,
+.header a:visited{
+text-decoration: underline;
+}
+
+.header select,
+.header input{
+font-size: 18px;
+border: 3px solid #cccccc;
+margin-left: 5px;
+}
+
+
+
+.header ul.content li.img a,
+.header ul.content li.img a:hover{
+padding: 15px 40px 4px 10px;
+color: red;
+font-weight: normal;
+font-family: grand hotel;
+font-size: 38px;
+background-color: black;
+background-image: url(images/notesicon.png);
+background-repeat: no-repeat;
+background-position: 95% 50%;
+text-decoration: none;
+}
+
+
+.header ul.content li.circle a img{
+text-decoration: none;
+margin-top: 15px;
+}
+
+
+/* Notitie aanmaken layout */
+.makenote{
+width: 600px;
+height: 600px;
+background-color: white;
+margin: 5px;
+}
+
+.makenote .headernote,
+.makenote .headernote input[type=text]{
+background-color: #cccccc;
+height: 75px;
+}
+
+.makenote .headernote img{
+float: right;
+}
+
+.makenote .description textarea{
+width: 598px;
+height: 300px;
+}
+
+.makenote .tags{
+width: 600px;
+}
+
+/* footer */
+.footer{
+text-align: center;
+font-family: grand hotel;
+font-size: 28px;
+background-color: black;
+color: red;
+}

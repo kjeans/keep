@@ -187,7 +187,7 @@ margin-top: 15px;
 }
 
 
-/* Notitie aanmaken layout */
+/* Notitie aanmaken layout addnote.php */
 .makenote{
 width: 600px;
 height: 600px;
@@ -221,4 +221,13 @@ font-family: grand hotel;
 font-size: 28px;
 background-color: black;
 color: red;
+}
+
+
+/* notitie aanmaken layout beheernote.php */
+.beheerlijst{
+background-color: white;
+}
+
+.beheerlijst{
 }

@@ -15,32 +15,32 @@
 	$showlist = true;
 	$editdata = false;
 	
-	beheerFunctionsNotitie::process_updates($editid);
+	beheerFunctionsNote::process_updates($editid);
 	
 	if ($editid > 0){
-		$editdata = beheerQueries::getProduct($editid);
+		$editdata = beheerQueries::getNote($editid);
 	}
 	
 	if ($editdata){
-		beheerFunctionsProduct::showProductForm($editid, $editdata);
+		beheerFunctionsNote::showNoteForm($editid, $editdata);
 		$showlist = false;
 	}
 	elseif ($createnew){
-		beheerFunctionsProduct::showProductForm();
+		beheerFunctionsNote::showNoteForm();
 		$showlist = false;
 	}
 	elseif ($deleteid > 0){
-		beheerQueries::deleteProduct($deleteid);
+		beheerQueries::deleteNote($deleteid);
 	}
 	elseif ($subtractid > 0){
-		beheerQueries::subtractProductAmount($subtractid);
+		beheerQueries::subtractNoteAmount($subtractid);
 	}
 	
 	
 	
 	if ($showlist){
-		$producten = beheerQueries::getAllProduct();
-		beheerFunctionsProduct::showProductList($producten);
+		$notities = beheerQueries::getAllNote();
+		beheerFunctionsNote::showNoteList($notities);
 	}
 	
 	

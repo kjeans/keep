@@ -11,7 +11,8 @@ require '../kshop/include.php';
 	printf('<form method="POST">');
 			printf('<div class="headernote">');
 			printf('<input type="text" placeholder="Vul hier de titel in">');
-			printf('<a href="#"><img src="images/noteplus1.png"></a>');
+			printf('<a href="addnote.php?id=1" onclick="false"><img src="images/noteplus1.png"></a>');
+			
 			printf('</div>');
 			printf('<div class="description">');
 			printf('<textarea placeholder="Vul hier de omschrijving in"></textarea>');

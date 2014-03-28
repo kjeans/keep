@@ -3,73 +3,86 @@
 	class beheerQueries{
 	
 	
-		public static function createNote($notedata){
-			$noteid = null;
-			if ($query = db::getConn()->prepare('INSERT INTO note (name,size,price,price_old,brand,description,keywords,color,gender,age,marktplaats_url,dimension,weight,delivery_type,amount, allow_trade, allow_bid,min_bid, visible, c_date, m_date) VALUES (?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, NOW(), NOW() )')) {
+		public static function prepareProduct($productdata){
+			if(!$productdata['allow_bid']){
+				$productdata['min_bid'] = null;
+			}
+			if(!is_null($productdata['price_old']) && $productdata['price'] > $productdata['price_old']){
+				$productdata['price_old'] = null;
+			}
+			return $productdata;
+		}
+	
+	
+		public static function createProduct($productdata){
+			$productdata = self::prepareProduct($productdata);
+			$productid = null;
+			if ($query = db::getConn()->prepare('INSERT INTO product (name,size,price,price_old,brand,description,keywords,color,gender,age,marktplaats_url,dimension,weight,delivery_type,amount, allow_trade, allow_bid,min_bid, visible, c_date, m_date) VALUES (?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, NOW(), NOW() )')) {
 				mysqli_stmt_bind_param($query, 
 					'ssiissssssssiiiiiii',
-					$notedata['name'],
-					$notedata['size'],
-					$notedata['price'], 			
-					$notedata['price_old'], 		
-					$notedata['brand'],	
-					$notedata['description'], 	
-					$notedata['keywords'], 	
-					$notedata['color'], 	
-					$notedata['gender'], 	
-					$notedata['age'], 					
-					$notedata['marktplaats_url'], 
-					$notedata['dimension'], 		
-					$notedata['weight'], 			
-					$notedata['delivery_type'], 	
-					$notedata['amount'], 		
-					$notedata['allow_trade'], 		
-					$notedata['allow_bid'], 		
-					$notedata['min_bid'],
-					$notedata['visible']
+					$productdata['name'],
+					$productdata['size'],
+					$productdata['price'], 			
+					$productdata['price_old'], 		
+					$productdata['brand'],	
+					$productdata['description'], 	
+					$productdata['keywords'], 	
+					$productdata['color'], 	
+					$productdata['gender'], 	
+					$productdata['age'], 					
+					$productdata['marktplaats_url'], 
+					$productdata['dimension'], 		
+					$productdata['weight'], 			
+					$productdata['delivery_type'], 	
+					$productdata['amount'], 		
+					$productdata['allow_trade'], 		
+					$productdata['allow_bid'], 		
+					$productdata['min_bid'],
+					$productdata['visible']
 				);
 				$query->execute();
-				$noteid = $query->insert_id;
+				$productid = $query->insert_id;
 				$query->close();
 			}
-			return $noteid;
+			return $productid;
 		}
 		
-		public static function updateNote($noteid, $notedata)
-			if ($query = db::getConn()->prepare('UPDATE note SET name=?, size=?, price=?,price_old=?,brand=?,description=?,keywords=?,color=?, gender=?, age=?, marktplaats_url=?,dimension=?,weight=?,delivery_type=?,amount=?, allow_trade=?, allow_bid=?,min_bid=?, visible=?, m_date=NOW() WHERE id=?')) {
+		public static function updateProduct($productid, $productdata){
+			$productdata = self::prepareProduct($productdata);
+			if ($query = db::getConn()->prepare('UPDATE product SET name=?, size=?, price=?,price_old=?,brand=?,description=?,keywords=?,color=?, gender=?, age=?, marktplaats_url=?,dimension=?,weight=?,delivery_type=?,amount=?, allow_trade=?, allow_bid=?,min_bid=?, visible=?, m_date=NOW() WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'ssiissssssssiiiiiiii',
-					$notedata['name'],
-					$notedata['size'],
-					$notedata['price'], 			
-					$notedata['price_old'], 		
-					$notedata['brand'],	
-					$notedata['description'], 	
-					$notedata['keywords'], 	
-					$notedata['color'], 	
-					$notedata['gender'], 	
-					$notedata['age'], 	
-					$notedata['marktplaats_url'], 
-					$notedata['dimension'], 		
-					$notedata['weight'], 			
-					$notedata['delivery_type'], 	
-					$notedata['amount'], 		
-					$notedata['allow_trade'], 	
-					$notedata['allow_bid'], 		
-					$notedata['min_bid'], 
-					$notedata['visible'], 	
-					$noteid
+					$productdata['name'],
+					$productdata['size'],
+					$productdata['price'], 			
+					$productdata['price_old'], 		
+					$productdata['brand'],	
+					$productdata['description'], 	
+					$productdata['keywords'], 	
+					$productdata['color'], 	
+					$productdata['gender'], 	
+					$productdata['age'], 	
+					$productdata['marktplaats_url'], 
+					$productdata['dimension'], 		
+					$productdata['weight'], 			
+					$productdata['delivery_type'], 	
+					$productdata['amount'], 		
+					$productdata['allow_trade'], 	
+					$productdata['allow_bid'], 		
+					$productdata['min_bid'], 
+					$productdata['visible'], 	
+					$productid
 				);
 				$query->execute();
 				$query->close();
 			}
 		}
 		
-		public static function subtractNoteAmount($noteid){
-			if ($query = db::getConn()->prepare('UPDATE note SET amount=IF(amount>1,amount-1,amount), visible=IF(amount>1,visible,0) WHERE id=?')) {
+		public static function subtractProductAmount($productid){
+			if ($query = db::getConn()->prepare('UPDATE product SET amount=IF(amount>1,amount-1,amount), visible=IF(amount>1,visible,0) WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'i',
-					$noteid
+					$productid
 				);
 				$query->execute();
 				$query->close();
@@ -79,7 +92,7 @@
 		
 		public static function createCategorie($categoriedata){
 			$categorieid = null;
-			if ($query = db::getConn()->prepare('INSERT INTO notegroep (name,offset,parent_id, filter_color, filter_price, filter_brand, filter_gender, filter_age,filter_size, filter_share) VALUES (?, ?, ?, ?,?,?,?,?,?,?)')) {
+			if ($query = db::getConn()->prepare('INSERT INTO productgroep (name,offset,parent_id, filter_color, filter_price, filter_brand, filter_gender, filter_age,filter_size, filter_share) VALUES (?, ?, ?, ?,?,?,?,?,?,?)')) {
 				mysqli_stmt_bind_param($query, 
 					'siiiiiiiii',
 					$categoriedata['name'],
@@ -101,7 +114,7 @@
 		}
 		
 		public static function updateCategorie($categorieid, $categoriedata){
-			if ($query = db::getConn()->prepare('UPDATE notegroep SET name=?, offset=?, parent_id=?, filter_color=?, filter_price=?, filter_brand=?, filter_gender=?, filter_age=?,filter_size=?, filter_share=? WHERE id=?')) {
+			if ($query = db::getConn()->prepare('UPDATE productgroep SET name=?, offset=?, parent_id=?, filter_color=?, filter_price=?, filter_brand=?, filter_gender=?, filter_age=?,filter_size=?, filter_share=? WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'siiiiiiiiii',
 					$categoriedata['name'],
@@ -125,15 +138,15 @@
 		
 		
 		
-		public static function deleteNote($noteid){
-			$fotos = self::getNotePicture($noteid);
+		public static function deleteProduct($productid){
+			$fotos = self::getProductPicture($productid);
 			foreach ($fotos as $foto){
-				self::deleteNotePicture($noteid, $foto['id']);
+				self::deleteProductPicture($productid, $foto['id']);
 			}
-			if ($query = db::getConn()->prepare('DELETE FROM note WHERE id=?')) {
+			if ($query = db::getConn()->prepare('DELETE FROM product WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'i',
-					$noteid
+					$productid
 				);
 				$query->execute();
 				$query->close();
@@ -141,7 +154,7 @@
 		}
 		
 		public static function deleteCategorie($categorieid){
-			if ($query = db::getConn()->prepare('DELETE FROM notegroep WHERE id=?')) {
+			if ($query = db::getConn()->prepare('DELETE FROM productgroep WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'i',
 					$categorieid
@@ -151,8 +164,8 @@
 			}
 		}
 		
-		public static function getNote($noteid){
-			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM note WHERE id = %d", $noteid));
+		public static function getProduct($productid){
+			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM product WHERE id = %d", $productid));
 			$data = false;
 			if (mysqli_num_rows($result) == 1) while($query = mysqli_fetch_assoc($result)){
 				$data = $query;
@@ -161,7 +174,7 @@
 		}
 		
 		public static function getCategorie($categorieid){
-			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM notegroep WHERE id = %d", $categorieid));
+			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM productgroep WHERE id = %d", $categorieid));
 			$data = false;
 			if (mysqli_num_rows($result) == 1) while($query = mysqli_fetch_assoc($result)){
 				$data = $query;
@@ -169,8 +182,8 @@
 			return $data;
 		}
 		
-		public static function getAllNote(){
-			$result = mysqli_query(db::getConn(), "SELECT * FROM note");
+		public static function getAllProduct(){
+			$result = mysqli_query(db::getConn(), "SELECT * FROM product");
 			$data = array();
 			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
 				$data[] = $query;
@@ -179,8 +192,8 @@
 		}
 		
 				
-		public static function getNotePicture($noteid){
-			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM image WHERE note_id = %d ORDER BY id ASC", $noteid));
+		public static function getProductPicture($productid){
+			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM image WHERE product_id = %d ORDER BY id ASC", $productid));
 			$data = array();
 			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
 				$data[] = $query;
@@ -190,14 +203,14 @@
 		
 		public static function getAllCategorie(){
 			$result = mysqli_query(db::getConn(), "(	
-							SELECT id, name, `offset`, id as parentid, 1 as parent, `offset` as parentoffset, name as fullname FROM notegroep		
+							SELECT id, name, `offset`, id as parentid, 1 as parent, `offset` as parentoffset, name as fullname FROM productgroep		
 							WHERE parent_id is null
 						)
 						UNION ALL
 						(
 							SELECT c.id, c.name, c.`offset`, c.parent_id as parentid, 0 as parent, p.`offset` as parentoffset, concat(p.name, ': ', c.name) as fullname
-							FROM notegroep as c		
-							INNER JOIN notegroep as p on c.parent_id = p.id 
+							FROM productgroep as c		
+							INNER JOIN productgroep as p on c.parent_id = p.id 
 							WHERE c.parent_id is not null	and p.parent_id is null	
 						)
 						ORDER BY parentoffset DESC, parentid ASC, parent DESC, `offset` DESC, id ASC");
@@ -207,13 +220,13 @@
 			}
 			return $data;
 		}
-		public static function getExistCategorie($noteid){
+		public static function getExistCategorie($productid){
 			$data = array();
 			$groepid = null;
-			if ($query = db::getConn()->prepare('SELECT notegroep_id FROM note_notegroep WHERE note_id = ?')) {
+			if ($query = db::getConn()->prepare('SELECT productgroep_id FROM product_productgroep WHERE product_id = ?')) {
 				mysqli_stmt_bind_param($query, 
 					'i',
-					$noteid
+					$productid
 				);
 				$query->execute();
 				$query->bind_result($groepid);
@@ -225,11 +238,11 @@
 			return $data;
 		}
 		
-		public static function deleteNotePicture($noteid, $fotoid){
-			if ($query = db::getConn()->prepare('DELETE FROM image WHERE note_id=? and id = ?')) {
+		public static function deleteProductPicture($productid, $fotoid){
+			if ($query = db::getConn()->prepare('DELETE FROM image WHERE product_id=? and id = ?')) {
 				mysqli_stmt_bind_param($query, 
 					'ii',
-					$noteid,
+					$productid,
 					$fotoid
 				);
 				$query->execute();
@@ -242,19 +255,19 @@
 			}	
 		}
 		
-		public static function deleteNoteCategorieLinks($noteid){
-			if ($query = db::getConn()->prepare('DELETE FROM note_notegroep WHERE note_id=?')) {
+		public static function deleteProductCategorieLinks($productid){
+			if ($query = db::getConn()->prepare('DELETE FROM product_productgroep WHERE product_id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'i',
-					$noteid
+					$productid
 				);
 				$query->execute();
 				$query->close();
 			}
 		}
 		
-		public static function updateNoteVisibility($ids, $show = true){
-			if ($query = db::getConn()->prepare(sprintf('UPDATE note SET visible = %d WHERE id IN (%s)', 
+		public static function updateProductVisibility($ids, $show = true){
+			if ($query = db::getConn()->prepare(sprintf('UPDATE product SET visible = %d WHERE id IN (%s)', 
 				($show ? 1 : 0),
 				implode(',', $ids)
 			))) {
@@ -264,11 +277,11 @@
 		}
 	
 	
-		public static function createNoteCategorieLink($noteid, $groepid){
-			if ($query = db::getConn()->prepare('INSERT INTO note_notegroep (note_id, notegroep_id) VALUES (?, ?)')) {
+		public static function createProductCategorieLink($productid, $groepid){
+			if ($query = db::getConn()->prepare('INSERT INTO product_productgroep (product_id, productgroep_id) VALUES (?, ?)')) {
 				mysqli_stmt_bind_param($query, 
 					'ii',
-					$noteid,
+					$productid,
 					$groepid
 				);
 				$query->execute();
@@ -276,12 +289,12 @@
 			}
 		}
 		
-		public static function createNoteImage($noteid, $filename = null, $extension = null){
+		public static function createProductImage($productid, $filename = null, $extension = null){
 			$fotoid = null;
-			if ($query = db::getConn()->prepare('INSERT INTO image (note_id, filename, extension) VALUES (?, ?, ?)')) {
+			if ($query = db::getConn()->prepare('INSERT INTO image (product_id, filename, extension) VALUES (?, ?, ?)')) {
 				mysqli_stmt_bind_param($query, 
 					'iss',
-					$noteid,
+					$productid,
 					$filename,
 					$extension
 				);

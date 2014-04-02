@@ -51,6 +51,7 @@
 			$newmode = is_null($noteid);
 			$notedata = self::getDefaults();
 			$notedata['title'] 			= forminput::textbox('titel');
+			if (!is_null($notedata['title'])) $notedata['title'] = strtocamel($notedata['title']);
 			$notedata['description']	= forminput::textarea('omschrijving');
 			$notedata['type'] 			= forminput::selectbox('soort');
 			$notedata['archived'] 		= forminput::checkbox('archiveren');

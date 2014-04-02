@@ -132,60 +132,51 @@ padding: 0;
 margin: 0;
 height: 67px;
 border-bottom: 2px solid: #666666;
+position: relative;
 }
 
-.header ul.content{
-text-align: center;
-display: inline;
-font-size: 28px;
-padding: 10px 0 5px 0;
-}
-
-.header ul.content li{
-padding-right: 40px;
-display: inline;
-}
-
-.header a{
-color: #cccccc;
-text-decoration: none;
-}
-
-.header a:hover,
-.header a:active,
-.header a:visited{
-text-decoration: underline;
-}
-
-.header select,
-.header input{
-font-size: 18px;
-border: 3px solid #cccccc;
-margin-left: 5px;
-}
-
-
-
-.header ul.content li.img a,
-.header ul.content li.img a:hover{
-padding: 15px 40px 4px 10px;
-color: red;
-font-weight: normal;
+.header .keep{
 font-family: grand hotel;
-font-size: 38px;
 background-color: black;
-background-image: url(images/notesicon.png);
-background-repeat: no-repeat;
-background-position: 95% 50%;
+padding: 15px 11px 15px 11px;
+color: red;
+font-size: 38px;
 text-decoration: none;
 }
 
-
-.header ul.content li.circle a img{
-text-decoration: none;
-margin-top: 15px;
+.search {
+position: relative;
+float: right;
+margin: 15px;
 }
 
+.searchbox{
+border: 1px solid black;
+background-color: white;
+padding: 0;
+margin: 0;
+}
+
+.searchbox .searchbar{
+height: 30px;
+border: none;
+background-color: white;
+line-height: 1.5;
+outline: none;
+padding-left: 15px;
+}
+
+.searchbox .searchbutton,
+.searchbox .searchbutton:hover,
+.searchbox .searchbutton:active,
+.searchbox .searchbutton:visited {
+width: 24px;
+height: 24px;
+float: right;
+margin-top: 4px;
+margin-right: 2px;
+outline: none;
+}
 /* Notitie aanmaken layout addnote.php */
 .makenote{
 width: 600px;

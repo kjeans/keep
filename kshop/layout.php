@@ -101,28 +101,24 @@
 <?PHP
 				printf('<body>');
 								
-				
 				printf('<div class="outside">');
 				printf('  <div class="header">');
-				
-				printf('    <div class="opties">');
-				
-				printf('	<ul class="content">');
-				printf('		<li class="img"><a href="home.php">Keep in Touch!</a></li>');
-				printf('		<li class="circle" title="Notitie toevoegen"><a href="addnote.php"><img src="images/noteplus1.png"></a></li>');
-				printf('		<li><a href="#">Meest recent</a></li>');
-				printf('		<li><a href="#">Herinnering</a></li>');
-				printf('		<li><a href="#">Afgerond</a></li>');
-				printf('		<li>');
+				printf('		<a href="home.php" class="keep">Keep in Touch!<img src="images/notesicon.png"/></a>');
+				printf('		<a href="beheernote.php"><img src="images/noteplus1.png"></a>');
+				printf('		<a href="#">Meest recent</a>');
+				printf('		<a href="#">Herinnering</a>');
+				printf('		<a href="#">Afgerond</a>');
 				printf('		<select>');
 				printf('			<option value="1">Contactpersoon oplopend</option>');
 				printf('			<option value="2">Contactpersoon aflopend</option>');
 				printf('		</select>');
-				printf('		</li>');
-				printf('		<li><input type="search" placeholder="Zoeken in notities"></li>');
-				printf('	</ul>');
-				printf('    </div>');
-				printf('</div>');
+							
+				printf('      <div class="search">');
+				printf('      	<form action="search.php" method="POST">');
+				printf('      		<div class="searchbox"><input name="searchquery" class="typeahead searchbar" type="text" placeholder="Zoeken in notities"><input class="searchbutton" type="image" src="images/search/search.png" alt="Zoeken"></div>');
+				printf('      	</form>');
+				printf('      </div>');
+				
 				printf('</div>');
 		}
 		

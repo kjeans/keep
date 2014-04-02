@@ -104,7 +104,7 @@
 				printf('<div class="outside">');
 				printf('  <div class="header">');
 				printf('		<a href="home.php" class="keep">Keep in Touch!<img src="images/notesicon.png"/></a>');
-				printf('		<a href="beheernote.php"><img src="images/noteplus1.png"></a>');
+				printf('		<a href="beheernote.php" class="toevoegen"><img src="images/noteplus1.png"></a>');
 				printf('		<a href="#">Meest recent</a>');
 				printf('		<a href="#">Herinnering</a>');
 				printf('		<a href="#">Afgerond</a>');

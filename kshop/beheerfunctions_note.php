@@ -106,7 +106,7 @@
 										);
 										imageResize::process_upload_resize($fotoid, $fotodir, $orifile, $fileinfo[2]);
 									} else echo 'Foto kon niet in de db worden opgeslagen.';
-								} else echo 'wat moet ik huiermee, geef jpg/png';
+								} else echo 'wat moet ik hiermee, geef jpg/png';
 							} else echo 'Bestand te groot(mb).';
 						} else echo 'Leeg bestand.';
 					} elseif ($_FILES[$veldnaam]['error'] !== UPLOAD_ERR_NO_FILE) echo 'Fout bij uploaden bestand.' . $_FILES[$veldnaam]['error'];

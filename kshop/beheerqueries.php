@@ -1,13 +1,13 @@
 <?php
 
 	class beheerQueries{
-	
-	
+
+
 		public static function createNote($notedata){
 			$noteid = null;
 			if ($query = db::getConn()->prepare('INSERT INTO notes (title, description, type, archived, reminder, creator_id, extraperson, tags, color, date, time, datetime VALUES (?,?,?,?,?,?,?,?,?,?,?, NOW())')) {
 				mysqli_stmt_bind_param($query, 
-					'ssiiiiissss',
+					'sssiiisssss',
 					$notedata['title'],
 					$notedata['description'],
 					$notedata['type'], 			
@@ -26,11 +26,11 @@
 			}
 			return $noteid;
 		}
-		
+
 		public static function updateNote($noteid, $notedata){
 			if ($query = db::getConn()->prepare('UPDATE notes SET title=?, description=?, type=?, archived=?,reminder=?,creator_id=?,extraperson=?,tags=?, color=?, date=?, time=?, datetime=NOW() WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
-					'ssiiiiissss',
+					'sssiiisssss',
 					$notedata['title'],
 					$notedata['description'],
 					$notedata['type'], 			
@@ -48,7 +48,7 @@
 				$query->close();
 			}
 		}
-		
+
 		public static function deleteNote($noteid){
 			$fotos = self::getNotePicture($noteid);
 			foreach ($fotos as $foto){
@@ -63,7 +63,7 @@
 				$query->close();
 			}
 		}
-		
+
 		public static function getNote($noteid){
 			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM notes WHERE id = %d", $noteid));
 			$data = false;
@@ -72,7 +72,7 @@
 			}
 			return $data;
 		}
-		
+
 		public static function getAllNote(){
 			$result = mysqli_query(db::getConn(), "SELECT * FROM notes");
 			$data = array();
@@ -81,8 +81,8 @@
 			}
 			return $data;
 		}
-		
-				
+
+
 		public static function getNotePicture($noteid){
 			$result = mysqli_query(db::getConn(), sprintf("SELECT * FROM file WHERE note_id = %d ORDER BY id ASC", $noteid));
 			$data = array();
@@ -91,8 +91,8 @@
 			}
 			return $data;
 		}
-		
-		
+
+
 		public static function deleteNotePicture($noteid, $fotoid){
 			if ($query = db::getConn()->prepare('DELETE FROM file WHERE note_id=? and id = ?')) {
 				mysqli_stmt_bind_param($query, 
@@ -109,7 +109,7 @@
 				}
 			}	
 		}
-		
+
 		public static function createNoteImage($noteid, $filename = null, $extension = null){
 			$fotoid = null;
 			if ($query = db::getConn()->prepare('INSERT INTO file (note_id, filename, extension) VALUES (?, ?, ?)')) {
@@ -125,5 +125,5 @@
 			}
 			return $fotoid;
 		}
-		
+
 	}

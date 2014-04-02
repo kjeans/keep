@@ -1,13 +1,13 @@
 <?php
 	include_once "database.php";
-	
+
 	class Bladermenu {
-	
+
 		public static function drawBladermenu($actieveCategorie=0) {
-		
+
 			$categorie = $actieveCategorie;
 			$echtecategorie = $categorie;
-			 
+
 			printf('<div class="sidebarleft">');
 			printf( '<ul>');
 			printf( '<li><span><a href="#calendar.php">Kalender</a></span></li>');
@@ -21,6 +21,5 @@
 			printf( '</ul>');
 			printf( '</div>');
 		}
-		
+
 	}
-	

@@ -5,11 +5,11 @@
 		if (!$value) $value = null;
 		return $value;
 	}
-	
+
 	function is_sha1($value){
 		return preg_match('#^[a-z0-9]{40}$#uD', $value) === 1;
 	}
-	
+
 	function tags($tagsstring) {
 		$keywords = preg_split ('#(,| )#uD',$tagsstring, -1, PREG_SPLIT_NO_EMPTY);
 		if (empty($keywords)) return '-';
@@ -19,12 +19,12 @@
 		}
 		return $html;
 	}
-	
+
 	function strtocamel($string) {
 		if ($string === strtoupper($string)) return ucwords(strtolower($string));
 		else return ucwords($string);
 	}
-	
+
 	function tags_clean($tagsstring) {
 		if (is_null($tagsstring)) return null;
 		$keywords = preg_split ('#(,| )#uD', strtolower($tagsstring), -1, PREG_SPLIT_NO_EMPTY);
@@ -36,33 +36,37 @@
 		}
 		return $tags ? $tags : null;
 	}
-	
+
 	function fotourl($fotoid, $fotocode){
 		return sprintf('noteimages/%d%s.png',$fotoid, $fotocode);
 	}
-	
+
 	function fotopath(){
 		return './noteimages/';
 	}
 	
 	function getColors(){
 		$data = array(
-			array('code' => 'wit',     'label' => 'Wit'),
-			array('code' => 'rood',    'label' => 'Rood'),
-			array('code' => 'groen',   'label' => 'Groen'),
-			array('code' => 'blauw',   'label' => 'Blauw'),
-			array('code' => 'geel',    'label' => 'Geel'),
-			array('code' => 'oranje',  'label' => 'Oranje'),
-			array('code' => 'paars',   'label' => 'Paars'),
-			array('code' => 'roze',    'label' => 'Roze'),
+			array('code' => 'wit',     'label' => 'Wit',     'image' => 'images/kleur/wit.png'),
+			array('code' => 'rood',    'label' => 'Rood',    'image' => 'images/kleur/rood.png'),
+			array('code' => 'groen',   'label' => 'Groen',   'image' => 'images/kleur/groen.png'),
+			array('code' => 'blauw',   'label' => 'Blauw',   'image' => 'images/kleur/blauw.png'),
+			array('code' => 'geel',    'label' => 'Geel',    'image' => 'images/kleur/geel.png'),
+			array('code' => 'oranje',  'label' => 'Oranje',  'image' => 'images/kleur/oranje.png'),
+			array('code' => 'paars',   'label' => 'Paars',   'image' => 'images/kleur/paars.png'),
+			array('code' => 'roze',    'label' => 'Roze',    'image' => 'images/kleur/roze.png'),
 		);
 		return $data;
 	}
 	
-	function getTypes(){
-		$data = array(
-			array('code' => 'prive', 	'label' => 'Prive'),
-			array('code' => 'zakelijk', 'label' => 'Zakelijk'), 
-		);
-	}
 	
+	function getTypes($forSelectBox=false){
+		$data = array(
+			array('code' => 'prive', 	'label' => 'Prive', 'image' => 'images/private.png'),
+			array('code' => 'zakelijk', 'label' => 'Zakelijk', 'image' => 'images/business.png'),
+		);
+		if (!$forSelectBox) return $data;
+		$options = array();
+		foreach($data as $entry) if (!is_null($entry['code'])) $options[$entry['code']] = $entry['label'];
+		return $options;
+	}

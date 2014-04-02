@@ -2,6 +2,32 @@
 
 	class beheerFunctionsNote{
 	
+	public static function showNoteList($notes){
+			printf('<form method="POST" action="?">');
+			echo '<table class="beheerlijst">';
+			echo '<tr>';
+			printf('<th>Titel</th>');
+			printf('<th>Omschrijving</th>');		
+			printf('<th>Update</th>');
+			printf('<th>Delete</th>');			
+			echo '</tr>';
+			if($notes) foreach($notes as $note){
+				echo '<tr>';
+				printf('<td>%d</td>', $note['id']);
+				printf('<td>%s</td>', $note['title']);
+				printf('<td><a href="?subtract=%d" onclick="return confirm(\'Weet u zeker dat u 1 van deze notes heeft verkocht ?\')">%d</a></td>', $note['id'], $note['amount']);
+				printf('<td><a href="?edit=%d">Bewerken</a></td>', $note['id']);
+				printf('<td><a href="?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')">Verwijderen</a></td>', $note['id']);				
+				echo '</tr>';
+			}
+			echo '<tr>';
+			printf('<td><a href="?new=1">Nieuw</a></td>');
+			printf('<td>&nbsp;</td>');		
+			echo '</tr>';
+			echo '</table>';
+			echo '</form>';
+		}
+
 		protected static function getDefaults() {
 			return array (
 				'id' => NULL,
@@ -18,18 +44,17 @@
 				'time' => NULL
 			);
 		}
-		
+
 		public static function process_updates($noteid){
 			if(empty($_POST)) return;
-			
+
 			$newmode = is_null($noteid);
 			$notedata = self::getDefaults();
 			$notedata['title'] 			= forminput::textbox('titel');
 			$notedata['description']	= forminput::textarea('omschrijving');
 			$notedata['type'] 			= forminput::selectbox('soort');
-			$notedata['archived'] 		= forminput::selectbox('archiveren');
-			$notedata['reminder'] 		= forminput::selectbox('herinnering');
-			$notedata['creator_id'] 	= forminput::textbox('persoon_id');
+			$notedata['archived'] 		= forminput::checkbox('archiveren');
+			$notedata['reminder'] 		= forminput::checkbox('herinnering');
 			$notedata['extraperson']	= forminput::textbox('extrapersoon');
 			$notedata['tags'] 			= tags_clean(forminput::textbox('keywords'));
 			$notedata['color'] 			= forminput::kleurbox('kleur');
@@ -42,7 +67,7 @@
 				beheerQueries::updateNote($noteid, $notedata);
 			}
 			self::process_uploads($noteid);
-			
+
 			if (!$newmode && !is_null($noteid)) {
 				$pictures = beheerQueries::getNotePicture($noteid);
 				foreach($pictures as $picture){
@@ -54,9 +79,9 @@
 			if (!is_null($noteid)) {
 				Header('Location: ?');
 			}
-			
+
 		}
-		
+
 		protected static function process_uploads($noteid = null){
 			if(empty($_FILES)) return;
 			$fotodir = fotopath();
@@ -84,15 +109,15 @@
 							} else echo 'Bestand te groot(mb).';
 						} else echo 'Leeg bestand.';
 					} elseif ($_FILES[$veldnaam]['error'] !== UPLOAD_ERR_NO_FILE) echo 'Fout bij uploaden bestand.' . $_FILES[$veldnaam]['error'];
-				} //else echo 'Geen foto geüpload.';
+				} //else echo 'Geen foto geÃ¼pload.';
 			}
 		}
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 		public static function showNoteForm($noteid = null, $notedata = null){
 			if(is_null($noteid)) {
 				$notedata = self::getDefaults();
@@ -112,7 +137,7 @@
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Prive of zakelijk:</th>');
-			printf('<td>%s</td>', form::selectbox('soort','', $notedata['type'], getType(true)));
+			printf('<td>%s</td>', form::selectbox('soort','', $notedata['type'], getTypes(true)));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Archiveren:</th>');
@@ -140,20 +165,21 @@
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Kleur:</th>');
-			printf('<td>%s</td>', form::selectbox('kleur','', $notedata['color'], getColors(true)));
+			printf('<td>%s</td>', form::kleurbox('kleur','', $notedata['color'], getColors(true)));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Foto:</th>');
 			printf('<td>%s</td>',self::getPicture($noteid));
 			echo '</tr>';
 			echo '</table>';
+			//printf('<div class="formbutton"%s</div>', form::cancel('Annuleren',''));
 			printf('<div class="formbutton">%s</div>', form::submit('Opslaan',''));
 			echo '</form>';
 		}
-		
+
 		protected static function getPicture($noteid=null){
 			$html = '';
-			for ($i = 1; $i <= 10; $i++)
+			for ($i = 1; $i <= 1; $i++)
 			$html .= form::uploadbox('fotonew' . $i,'') . '<br>';
 			$pictures = beheerQueries::getnotePicture($noteid);
 			foreach($pictures as $picture){

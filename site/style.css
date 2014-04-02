@@ -186,7 +186,6 @@ text-decoration: none;
 margin-top: 15px;
 }
 
-
 /* Notitie aanmaken layout addnote.php */
 .makenote{
 width: 600px;
@@ -226,8 +225,44 @@ color: red;
 
 /* notitie aanmaken layout beheernote.php */
 .beheerlijst{
+border-collapse: collapse;
 background-color: white;
 }
 
-.beheerlijst{
+.beheerlijst td,
+.beheerlijst th{
+padding: 3px 5px;
+text-align: left;
 }
+
+.beheerfoto{
+padding: 5px;
+background-image: url(background/lightblue.png);
+background-size: contain;
+margin: 0 10px 10px 0;
+float: left;
+text-align: center;
+}
+
+.beheerfoto img{
+display: block;
+}
+
+.beheerlijst input,
+.beheerlijst textarea{
+width: 400px;
+}
+
+.textarea{
+height: 200px;
+}
+
+.checkbox{
+width: auto;
+}
+
+input[type=button],
+input[type=submit]{
+width: auto;
+}
+/* einde layout beheer.php */

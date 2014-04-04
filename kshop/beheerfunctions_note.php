@@ -3,6 +3,7 @@
 	class beheerFunctionsNote{
 	
 	public static function showNoteList($notes){
+			printf('<h2>De lijst met jouw notities beheren</h2>');
 			printf('<form method="POST" action="?">');
 			echo '<table class="beheerlijst">';
 			echo '<tr>';
@@ -13,9 +14,8 @@
 			echo '</tr>';
 			if($notes) foreach($notes as $note){
 				echo '<tr>';
-				printf('<td>%d</td>', $note['id']);
 				printf('<td>%s</td>', $note['title']);
-				printf('<td><a href="?subtract=%d" onclick="return confirm(\'Weet u zeker dat u 1 van deze notes heeft verkocht ?\')">%d</a></td>', $note['id'], $note['amount']);
+				printf('<td>%s</td>', $note['description']);
 				printf('<td><a href="?edit=%d">Bewerken</a></td>', $note['id']);
 				printf('<td><a href="?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')">Verwijderen</a></td>', $note['id']);				
 				echo '</tr>';
@@ -33,15 +33,18 @@
 				'id' => NULL,
 				'title' => '',
 				'description' => NULL,
+				'datetime' => NULL,	
 				'type' => NULL,
 				'archived' => NULL,
 				'reminder' => NULL,
-				'creator_id' => NULL,
-				'extraperson' => NULL,
 				'tags' => NULL,
 				'color' => NULL,
 				'date' => NULL,
 				'time' => NULL
+/*
+				'creator_id' => NULL,
+				'extraperson' => NULL,
+*/
 			);
 		}
 
@@ -56,11 +59,13 @@
 			$notedata['type'] 			= forminput::selectbox('soort');
 			$notedata['archived'] 		= forminput::checkbox('archiveren');
 			$notedata['reminder'] 		= forminput::checkbox('herinnering');
+/*
 			$notedata['extraperson']	= forminput::textbox('extrapersoon');
+*/
 			$notedata['tags'] 			= tags_clean(forminput::textbox('keywords'));
 			$notedata['color'] 			= forminput::kleurbox('kleur');
-			$notedata['date'] 			= forminput::textbox('datum');
-			$notedata['time'] 			= forminput::textbox('tijd');
+			$notedata['date'] 			= forminput::datebox('datum');
+			$notedata['time'] 			= forminput::timebox('tijd');
 			if(is_null($noteid)) {
 				$noteid = beheerQueries::createNote($notedata);
 			}
@@ -148,21 +153,23 @@
 			printf('<th>Herinnering:</th>');
 			printf('<td>%s</td>', form::checkbox('herinnering','', $notedata['reminder']));
 			echo '</tr>';
+/*
 			echo '<tr>';
 			printf('<th>Extrapersoon:</th>');
 			printf('<td>%s</td>', form::textbox('extrapersoon','', $notedata['extraperson']));
 			echo '</tr>';
+*/
 			echo '<tr>';
 			printf('<th>Tags:</th>');
 			printf('<td>%s</td>', form::textbox('keywords','', $notedata['tags']));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Datum:</th>');
-			printf('<td>%s</td>', form::textbox('datum','', $notedata['date']));
+			printf('<td>%s</td>', form::datebox('datum','', $notedata['date']));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Tijd:</th>');
-			printf('<td>%s</td>', form::textbox('tijd','', $notedata['time']));
+			printf('<td>%s</td>', form::timebox('tijd','', $notedata['time']));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Kleur:</th>');

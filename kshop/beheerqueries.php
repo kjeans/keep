@@ -2,23 +2,29 @@
 
 	class beheerQueries{
 
+		public static function prepareNote($notedata){			
+			return $notedata;
+		}
 
 		public static function createNote($notedata){
+			$notedata = self::prepareNote($notedata);
 			$noteid = null;
-			if ($query = db::getConn()->prepare('INSERT INTO notes (title, description, type, archived, reminder, creator_id, extraperson, tags, color, date, time, datetime VALUES (?,?,?,?,?,?,?,?,?,?,?, NOW())')) {
+			if ($query = db::getConn()->prepare('INSERT INTO notes (title, description, `type`, archived, reminder,tags, color,`date`,`time`,`datetime`) VALUES (?,?,?,?,?,?,?,?,?,NOW())')){
 				mysqli_stmt_bind_param($query, 
-					'sssiiisssss',
+					'sssiissss',
 					$notedata['title'],
 					$notedata['description'],
-					$notedata['type'], 			
-					$notedata['archived'], 		
-					$notedata['reminder'],	
-					$notedata['creator_id'], 	
-					$notedata['extraperson'], 	
+					$notedata['type'],
+					$notedata['archived'],	
+					$notedata['reminder'],
 					$notedata['tags'], 	
 					$notedata['color'], 	
 					$notedata['date'], 					
 					$notedata['time']
+/*			
+					$notedata['creator_id'],
+					$notedata['extraperson'], 	
+*/
 				);
 				$query->execute();
 				$noteid = $query->insert_id;
@@ -28,16 +34,18 @@
 		}
 
 		public static function updateNote($noteid, $notedata){
-			if ($query = db::getConn()->prepare('UPDATE notes SET title=?, description=?, type=?, archived=?,reminder=?,creator_id=?,extraperson=?,tags=?, color=?, date=?, time=?, datetime=NOW() WHERE id=?')) {
+			$notedata = self::prepareNote($notedata);			
+			if ($query = db::getConn()->prepare('UPDATE notes SET title=?, description=?, `type`=?, archived=?,reminder=?,tags=?, color=?, `date`=?, `time`=?, `datetime`=NOW() WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
-					'sssiiisssss',
+					'sssiissss',
 					$notedata['title'],
 					$notedata['description'],
 					$notedata['type'], 			
 					$notedata['archived'], 		
 					$notedata['reminder'],	
-					$notedata['creator_id'], 	
+/*					
 					$notedata['extraperson'], 	
+	*/
 					$notedata['tags'], 	
 					$notedata['color'], 	
 					$notedata['date'], 					

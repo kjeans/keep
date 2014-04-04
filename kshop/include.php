@@ -9,4 +9,6 @@ require	"../kshop/form.php";
 require "../kshop/forminput.php";
 require "../kshop/beheerfunctions_note.php";
 require "../kshop/beheerqueries.php";
+require "../kshop/notequeries.php";
+require "../kshop/notefunctions_blader.php";
 require "../kshop/imageresize.php";

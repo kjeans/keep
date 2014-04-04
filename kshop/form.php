@@ -47,17 +47,18 @@
 
 		public static function kleurbox($name, $class, $value, $options){
 			$html  = '<input type="hidden"';
-			$html .= sprintf(' id="%s"', $name);
+			$html .= sprintf(' id="%s_dd_target"', $name);
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' value="%s"', htmlentities($value, ENT_QUOTES, 'UTF-8'));
 			$html .= '>';
 			$html .= '<select';
-			$html .= sprintf(' id="%s"', $name);
-			$html .= sprintf(' class="kleurbox %s"', $class);	
+			$html .= sprintf(' id="%s_dd"', $name);
+			$html .= sprintf(' class="ddslick kleurbox %s"', $class);	
 			$html .= '>';
 			foreach ($options as $option){
 				$html .= '<option';
 				$html .= sprintf(' data-imagesrc="%s"', htmlentities($option['image'], ENT_QUOTES, 'UTF-8'));
+				//$html .= sprintf(' data-description="&nbsp;"', htmlentities($option['label'], ENT_QUOTES));
 				$html .= sprintf(' value="%s"', htmlentities($option['code'], ENT_QUOTES, 'UTF-8'));
 				if($value == $option['code']){
 					$html .= ' selected="selected"';
@@ -67,7 +68,7 @@
 				$html .= '</option>';
 			}
 			$html .= '</select>';
-
+			
 			return $html;
 		}
 
@@ -127,5 +128,21 @@
 			$html .= sprintf(' class="%s"', $class);
 			$html .= '>';
 			return $html;
+		}
+		
+		public static function datebox($name, $class){
+			$html = '<input type="date" value=""';
+			$html .= sprintf(' name="%s"', $name);
+			$html .= sprintf(' class="%s"', $class);
+			$html .= '>';
+			return $html;			
+		}
+		
+		public static function timebox($name, $class){
+			$html = '<input type="time" value=""';
+			$html .= sprintf(' name="%s"', $name);
+			$html .= sprintf(' class="%s"', $class);
+			$html .= '>';
+			return $html;			
 		}
 	}

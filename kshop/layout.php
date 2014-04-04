@@ -58,15 +58,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Keep in Touch!</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript" src="images/jquery-ui-1.7.2.custom.js"></script>
-		<script type="text/javascript" src="images/jquery.ddslick.min.js"></script>
-		<script type="text/javascript" src="images/jquery.tinycarousel.min.js"></script>
-        <script type="text/javascript" src="images/fancybox/jquery.fancybox.pack.js"></script>
-		<script type="text/javascript" src="images/hogan.js"></script>
-		<script type="text/javascript" src="images/typeahead.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.js"></script>
+		<script type="text/javascript" src="scripts/jquery.ddslick.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.tinycarousel.min.js"></script>
+        <script type="text/javascript" src="scripts/fancybox/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" src="scripts/hogan.js"></script>
+		<script type="text/javascript" src="scripts/typeahead.min.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="images/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<script type="text/javascript">
             $(document).ready(function() {
 										

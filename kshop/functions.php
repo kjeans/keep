@@ -62,8 +62,9 @@
 	
 	function getTypes($forSelectBox=false){
 		$data = array(
-			array('code' => 'prive', 	'label' => 'Prive', 'image' => 'images/private.png'),
-			array('code' => 'zakelijk', 'label' => 'Zakelijk', 'image' => 'images/business.png'),
+			array('code' => '', 		'label' => 'Kies:',		'image' => ''),
+			array('code' => 'prive', 	'label' => 'Prive', 	'image' => 'images/private.png'),
+			array('code' => 'zakelijk',	'label' => 'Zakelijk', 	'image' => 'images/business.png'),
 		);
 		if (!$forSelectBox) return $data;
 		$options = array();

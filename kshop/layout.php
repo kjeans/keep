@@ -33,7 +33,9 @@
             );
             });
 </script>
-<script>		
+
+<script>
+/*		
 		var date = new Date();
 
 		var day = date.getDate();
@@ -45,6 +47,7 @@
 
 		var today = year + "-" + month + "-" + day;       
 		document.getElementById("theDate").value = today;
+*/
 </script>
 
 <script type="text/javascript">

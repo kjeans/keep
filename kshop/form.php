@@ -131,7 +131,7 @@
 		}
 		
 		public static function datebox($name, $class){
-			$html = '<input type="date" value=""';
+			$html = '<input type="date" id="theDate" value=""';
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' class="%s"', $class);
 			$html .= '>';
@@ -139,7 +139,7 @@
 		}
 		
 		public static function timebox($name, $class){
-			$html = '<input type="time" value=""';
+			$html = '<input type="time" id="theTime" value=""';
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' class="%s"', $class);
 			$html .= '>';

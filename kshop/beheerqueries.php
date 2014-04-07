@@ -34,22 +34,22 @@
 		}
 
 		public static function updateNote($noteid, $notedata){
-			$notedata = self::prepareNote($notedata);			
+			//$notedata = self::prepareNote($notedata);			
 			if ($query = db::getConn()->prepare('UPDATE notes SET title=?, description=?, type=?, archived=?,reminder=?,tags=?, color=?, date=?, time=?, datetime=NOW() WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
-					'sssiissss',
+					'sssiissssi',
 					$notedata['title'],
 					$notedata['description'],
 					$notedata['type'], 			
 					$notedata['archived'], 		
 					$notedata['reminder'],	
-/*					
-					$notedata['extraperson'], 	
-	*/
 					$notedata['tags'], 	
 					$notedata['color'], 	
 					$notedata['date'], 					
 					$notedata['time'],
+/*					
+					$notedata['extraperson'], 	
+	*/
 					$noteid
 				);
 				$query->execute();

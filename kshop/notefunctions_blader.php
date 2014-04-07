@@ -32,12 +32,12 @@
 			}
 		}	
 	
-		protected static function printNote($product){
-			$images = notequeries::getNotePictures($product['id'], true);
+		protected static function printNote($note){
+			$images = notequeries::getNotePictures($note['id'], true);
 			foreach($images as $image){
 				$primary = $image['bladerfoto'];
 			}
-			printf('<a href="#">', $product['id']);
+			printf('<a href="#">', $note['id']);
 			printf('<table class="bladernote">');
 			printf('<tr><td class="foto"><img src="%s" alt=" "></td></tr>',$primary);
 			printf('<tr><td class="titel">%s</td></tr>', $note['title']);

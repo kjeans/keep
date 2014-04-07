@@ -7,7 +7,8 @@ require '../kshop/include.php';
 	Bladermenu::drawBladermenu();
 	Layout::closeSidebar();
 	
-	//$regel1 = productqueries::queryHomeProducten('1=1', 'product.c_date DESC, product.m_date DESC'); // nieuwste items
+	$regel1 = notequeries::queryHomeNotes('1=1', 'notes.datetime DESC'); // nieuwste items
+	/*
 	for($i = 1; $i <=8; $i++){
 		printf('<div class="bladernote">');
 		printf('<a href="#">');
@@ -19,6 +20,6 @@ require '../kshop/include.php';
 		printf('</a>');
 		printf('</div>');
 	}
-	
+	*/
 	Layout::closeCanvas();
 	Layout::drawFooter();

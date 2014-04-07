@@ -153,6 +153,14 @@
 			printf('<th>Herinnering:</th>');
 			printf('<td>%s</td>', form::checkbox('herinnering','', $notedata['reminder']));
 			echo '</tr>';
+				echo '<tr>';
+				printf('<th>Datum:</th>');
+				printf('<td>%s</td>', form::datebox('datum','', $notedata['date']));
+				echo '</tr>';
+				echo '<tr>';
+				printf('<th>Tijd:</th>');
+				printf('<td>%s</td>', form::timebox('tijd','', $notedata['time']));
+				echo '</tr>';
 /*
 			echo '<tr>';
 			printf('<th>Extrapersoon:</th>');
@@ -162,14 +170,6 @@
 			echo '<tr>';
 			printf('<th>Tags:</th>');
 			printf('<td>%s</td>', form::textbox('keywords','', $notedata['tags']));
-			echo '</tr>';
-			echo '<tr>';
-			printf('<th>Datum:</th>');
-			printf('<td>%s</td>', form::datebox('datum','', $notedata['date']));
-			echo '</tr>';
-			echo '<tr>';
-			printf('<th>Tijd:</th>');
-			printf('<td>%s</td>', form::timebox('tijd','', $notedata['time']));
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Kleur:</th>');

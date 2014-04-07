@@ -139,7 +139,7 @@
 		}
 		
 		public static function timebox($name, $class){
-			$html = '<input type="time" id="theTime" value=""';
+			$html = '<input type="time" value=""';
 			$html .= sprintf(' name="%s"', $name);
 			$html .= sprintf(' class="%s"', $class);
 			$html .= '>';

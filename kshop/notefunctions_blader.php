@@ -53,11 +53,14 @@
 			elseif($note['reminder'] == 0 && $note['favorite'] == 0){
 				printf('<tr><td class="titel %s">%s <img src="../site/images/favoriteoff.png"></td></tr>',  $note['color'], $note['title']);	
 			}
-			printf('<tr><td class="omschrijving">%s</td></tr>', ($note['description']));
-			if (!is_null($primary)){
-				printf('<tr><td class="foto"><img src="%s" alt=" "></td></tr>',$primary);
-			}
+			
+				printf('<tr><td class="omschrijving">%s</td></tr>', ($note['description']));
+				if (!is_null($primary)){
+					printf('<tr><td class="foto"><img src="%s" alt=" "></td></tr>',$primary);
+				}
+			
 			printf('<tr><td class="tags">%s</td></tr>', tags($note['tags']));
+			printf('<tr><td class="trash"><a href="beheernote.php?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')" ><img src="../site/images/trash_can.png"></a></td></tr>', $note['id']);
 			printf('</table>');
 			printf('</a>');
 		}	

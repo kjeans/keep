@@ -13,3 +13,4 @@ require "../kshop/notequeries.php";
 require "../kshop/notefunctions_blader.php";
 require "../kshop/searchsysteem.php";
 require "../kshop/imageresize.php";
+require "../kshop/breadcrumb.php";

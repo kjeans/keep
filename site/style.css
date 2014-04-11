@@ -77,6 +77,8 @@ padding: 0;
 border-bottom: 2px solid #666666;
 margin: 0;
 padding: 0;
+font-family: lobster two;
+font-weight: normal; 
 }
 
 .sidebarleft li:last-child{
@@ -117,8 +119,6 @@ display: inline-block;
 font-size: 16px;
 border-bottom-right-radius: 5px;
 border-bottom-left-radius: 5px;
-border-top-left-radius: 5px;
-border-top-right-radius: 5px;
 }
 
 .bladernote a,
@@ -141,6 +141,7 @@ font-size: 18px;
 
 .bladernote .titel img{
 float: right;
+padding: 3px;
 }
 
 .bladernote .omschrijving{
@@ -157,6 +158,13 @@ padding-top: 5px;
 
 .bladernote .tags{
 padding: 1px 3px 0 3px;
+float: left;
+}
+
+.bladernote .trash{
+vertical-align: bottom;
+float: right;
+padding: 3px;
 }
 
 
@@ -299,7 +307,7 @@ outline: none;
 }
 
 .header a{
-font-family: grand hotel;
+font-family: lobster two;
 font-weight: normal;
 font-size: 28px;
 color: #cccccc;

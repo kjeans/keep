@@ -9,7 +9,7 @@
 		public static function createNote($notedata){
 			$notedata = self::prepareNote($notedata);
 			$noteid = null;
-			if ($query = db::getConn()->prepare('INSERT INTO notes (title, description, type, archived, reminder,tags, color,date,time,datetime) VALUES (?,?,?,?,?,?,?,?,?,NOW())')){
+			if ($query = db::getConn()->prepare('INSERT INTO notes (title, description, type, archived, reminder,tags, color, date, time, datetime) VALUES (?,?,?,?,?,?,?,?,?,NOW())')){
 				mysqli_stmt_bind_param($query, 
 					'sssiissss',
 					$notedata['title'],
@@ -35,7 +35,9 @@
 
 		public static function updateNote($noteid, $notedata){
 			//$notedata = self::prepareNote($notedata);			
-			if ($query = db::getConn()->prepare('UPDATE notes SET title=?, description=?, type=?, archived=?,reminder=?,tags=?, color=?, date=?, time=?, datetime=NOW() WHERE id=?')) {
+			
+			
+			if ($query = db::getConn()->prepare('UPDATE notes SET  title=?, description=?, type=?, archived=?,reminder=?,tags=?, color=?, `date`=?, `time`=?,  `datetime`=NOW() WHERE id=?')) {
 				mysqli_stmt_bind_param($query, 
 					'sssiissssi',
 					$notedata['title'],

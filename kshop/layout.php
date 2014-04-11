@@ -35,7 +35,7 @@
 </script>
 
 <script>
-/*		
+/*
 		var date = new Date();
 
 		var day = date.getDate();
@@ -110,6 +110,23 @@
 						$('#' + ddslickBox.original[0].id + '_target').val(ddslickBox.selectedData.value);
 					}	
 				});
+				
+				$('.extrareminder').change(function(event){
+					if ($(this).is(':checked')) {
+						$('tr.datum').show();
+						$('tr.tijd').show();
+					} else {
+						$('tr.datum').hide();
+						$('tr.tijd').hide();
+					}
+				});
+				if ($('.extrareminder').is(':checked')) {
+						$('tr.datum').show();
+						$('tr.tijd').show();
+				} else {
+						$('tr.datum').hide();
+						$('tr.tijd').hide();
+				}
             });
 </script>
 	</head>
@@ -120,7 +137,7 @@
 				printf('  <div class="header">');
 				printf('		<a href="home.php" class="keep">Keep in Touch!<img src="images/notesicon.png"/></a>');
 				printf('		<a href="beheernote.php" class="toevoegen"><img src="images/noteplus1.png"></a>');
-				printf('		<a href="#">Meest recent</a>');
+				printf('		<a href="home.php">Meest recent</a>');
 				printf('		<a href="#">Herinnering</a>');
 				printf('		<a href="#">Afgerond</a>');
 				printf('		<select>');

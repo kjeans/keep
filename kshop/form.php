@@ -129,20 +129,28 @@
 			$html .= '>';
 			return $html;
 		}
-		
-		public static function datebox($name, $class){
-			$html = '<input type="date" id="theDate" value=""';
+				
+		public static function datebox($name, $class, $value){
+			if (is_null($value)){ 
+				$value = ''; 
+			}
+			$html  = '<input type="date"';
 			$html .= sprintf(' name="%s"', $name);
-			$html .= sprintf(' class="%s"', $class);
+			$html .= sprintf(' class="%s"', $class);	
+			$html .= sprintf(' value="%s"', htmlentities($value, ENT_QUOTES, 'UTF-8'));
 			$html .= '>';
-			return $html;			
+			return $html;
 		}
 		
-		public static function timebox($name, $class){
-			$html = '<input type="time" value=""';
+		public static function timebox($name, $class, $value){
+			if (is_null($value)){ 
+				$value = ''; 
+			}
+			$html  = '<input type="time"';
 			$html .= sprintf(' name="%s"', $name);
-			$html .= sprintf(' class="%s"', $class);
+			$html .= sprintf(' class="%s"', $class);	
+			$html .= sprintf(' value="%s"', htmlentities($value, ENT_QUOTES, 'UTF-8'));
 			$html .= '>';
-			return $html;			
+			return $html;
 		}
 	}

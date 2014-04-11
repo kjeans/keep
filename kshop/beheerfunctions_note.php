@@ -83,7 +83,7 @@
 				}
 			}
 			if (!is_null($noteid)) {
-				Header('Location: ?');
+				Header('Location: home.php');
 			}
 
 		}
@@ -125,6 +125,7 @@
 
 
 		public static function showNoteForm($noteid = null, $notedata = null){
+		//var_export($notedata);
 			if(is_null($noteid)) {
 				$notedata = self::getDefaults();
 				$uri = '?new=1';
@@ -151,16 +152,16 @@
 			echo '</tr>';
 			echo '<tr>';
 			printf('<th>Herinnering:</th>');
-			printf('<td>%s</td>', form::checkbox('herinnering','', $notedata['reminder']));
+			printf('<td>%s</td>', form::checkbox('herinnering','extrareminder', $notedata['reminder']));
 			echo '</tr>';
-				echo '<tr>';
-				printf('<th>Datum:</th>');
-				printf('<td>%s</td>', form::datebox('datum','', $notedata['date']));
-				echo '</tr>';
-				echo '<tr>';
-				printf('<th>Tijd:</th>');
-				printf('<td>%s</td>', form::timebox('tijd','', $notedata['time']));
-				echo '</tr>';
+			echo '<tr class="datum">';
+			printf('<th>Datum:</th>');
+			printf('<td>%s</td>', form::datebox('datum','', $notedata['date']));
+			echo '</tr>';
+			echo '<tr class="tijd">';
+			printf('<th>Tijd:</th>');
+			printf('<td>%s</td>', form::timebox('tijd','', $notedata['time']));
+			echo '</tr>';
 /*
 			echo '<tr>';
 			printf('<th>Extrapersoon:</th>');

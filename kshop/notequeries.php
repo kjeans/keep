@@ -3,15 +3,12 @@
 	class notequeries {
 	
 		
-	
 		public static function querySearchNotes($ids){
 			$result = mysqli_query(db::getConn(), sprintf("
 	            SELECT notes.* FROM notes
-				AND notes.id IN (%s)
-				GROUP BY notes.id
+				WHERE notes.id IN (%s)
 				ORDER BY notes.title ASC
 			", $ids));
-			
 			$data = array();
 			
 			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
@@ -22,11 +19,11 @@
 	
 		
 
-		public static function queryNoteInfo($productid){
+		public static function queryNoteInfo($noteid){
 			$result = mysqli_query(db::getConn(), sprintf("
 	            SELECT * FROM notes
 				WHERE id = %d		
-				",$productid));
+				",$noteid));
 			if (mysqli_num_rows($result) !== 1){
 				return false;
 			} else {
@@ -42,11 +39,11 @@
 				       CONCAT('noteimages/', id, 'm.png') as microfoto,
 				       CONCAT('noteimages/', id, 's.png') as searchfoto,
 				       CONCAT('noteimages/', id, 'o.', extension) as origineelfoto
-				  FROM image 
+				  FROM file 
 				 WHERE note_id = %d 
 				 ORDER BY id ASC
 				 %s
-			", $productid, 
+			", $noteid, 
 			($onlyone ? 'LIMIT 0,1' : '')
 			));
 			$data = array();
@@ -62,14 +59,46 @@
 		*********************************************************************************/
 		
 	
-		public static function queryHomeNotes($where, $order){
+		public static function queryHomeNotes($order){
 			$result = mysqli_query(db::getConn(), sprintf("
-	            SELECT notes.* FROM notes
-				AND %s
-				GROUP BY product.id
+	            SELECT * FROM notes
 				ORDER BY %s
-				LIMIT 4
-			", $where, $order));
+				LIMIT 8
+			",$order));
+			$data = array();
+			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
+				$data[] = $query;
+			}
+			return $data;
+		}
+		
+		
+		/*********************************************************************************
+		prive en zakelijk
+		*********************************************************************************/
+		
+		
+		public static function queryPriveNotes($order){
+			$result = mysqli_query(db::getConn(), sprintf("
+	            SELECT * FROM notes
+				WHERE type = prive
+				ORDER BY %s
+				LIMIT 8
+			", $order));
+			$data = array();
+			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
+				$data[] = $query;
+			}
+			return $data;
+		}
+		
+		public static function queryZakelijkNotes($order){
+			$result = mysqli_query(db::getConn(), sprintf("
+	            SELECT * FROM notes
+				WHERE type = zakelijk
+				ORDER BY %s
+				LIMIT 8
+			", $order));
 			$data = array();
 			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
 				$data[] = $query;

@@ -1,0 +1,33 @@
+noteclass color
+
+Rood:
+Title: #ff0000
+Body: #ff6666
+
+Blauw:
+Title: #0099ff
+Body: #66ccff
+
+Geel:
+Title: #ffff00
+Body: #ffff66
+
+Groen:
+Title: #99ff00
+Body: #ccff66
+
+Wit:
+Title: #cccccc
+Body: #ffffff
+
+Paars:
+Title: #cc66ff
+Body: #cc99ff
+
+Oranje:
+Title: #ff9900
+Body: #ffcc66
+
+Roze:
+Title: #ff33ff
+Body: #ff99ff

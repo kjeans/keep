@@ -41,7 +41,20 @@ background-size: cover;
 background-color: #666666;
 }
 
+.canvas {
+min-height: 700px;
+}
 
+
+
+h2{
+margin: 10px 0 0 30px;
+padding: 0;
+font-family: pacifico;
+font-weight: normal;
+font-size: 32px;
+color: #eeeeee;
+}
 
 /* Sidebar */
 
@@ -81,22 +94,31 @@ text-decoration: none;
 font-size: 28px;
 }
 
+.sidebarleft .emptylast{
+padding-bottom: 275px;
+border: none;
+}
+
 .sidebarleft input{
 font-size: 18px;
 border: 3px solid #cccccc;
-margin-left: 10px;
-margin-top: 300px;
+margin: 10px;
 }
 
 
 /* Notities */
 
 .bladernote{
-margin: 50px 10px 10px 50px;
+margin: 30px 10px 10px 30px;
 width: 250px;
 height: 250px;
 border-collapse: collapse;
 display: inline-block;
+font-size: 16px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 }
 
 .bladernote a,
@@ -108,21 +130,114 @@ color: black;
 }
 
 
-.bladernote .naam{
-padding: 3px 5px;
-background-color: #ffff00;
+.bladernote .titel{
 font-size: 24px;
-border-top-left-radius: 5px;
-border-top-right-radius: 5px;
+width: 250px;
+padding: 1px 3px 0 3px;
+color: black;
+font-family: pacifico;
+font-size: 18px;
+}
+
+.bladernote .titel img{
+float: right;
 }
 
 .bladernote .omschrijving{
-padding: 3px 5px;
-background-color: #ffff66;
-font-size: 16px;
-border-bottom-right-radius: 5px;
-border-bottom-left-radius: 5px;
+padding: 1px 3px 0 3px;
+color: black;
+font-family: blokletters balpen;
+font-size: 12px;
 }
+
+.bladernote .foto{
+text-align: center;
+padding-top: 5px;
+}
+
+.bladernote .tags{
+padding: 1px 3px 0 3px;
+}
+
+
+
+/* Kleur notities */
+/* Groen */
+.bladernote.groen{
+background-color: #ccff66;
+}
+
+.titel.groen{
+background-color: #99ff00;
+}
+
+/* Rood */
+.bladernote.rood{
+background-color: #ff6666;
+}
+
+.titel.rood{
+background-color: #ff0000;
+}
+
+/* geel */
+.bladernote.geel{
+background-color: #ffff66;
+}
+
+.titel.geel{
+background-color: #ffff00;
+}
+
+/* Blauw */
+.bladernote.blauw{
+background-color: #66ccff;
+}
+
+.titel.blauw{
+background-color: #0099ff;
+}
+
+/* Oranje */
+.bladernote.oranje{
+background-color: #ffcc66;
+}
+
+.titel.oranje{
+background-color: #ff9900;
+}
+
+/* Paars */
+.bladernote.paars{
+background-color: #cc99ff;
+}
+
+.titel.paars{
+background-color: #cc66ff;
+}
+
+/* Roze */
+.bladernote.roze{
+background-color: #ff99ff;
+}
+
+.titel.roze{
+background-color: #ff33ff;
+}
+
+/* Wit */
+.bladernote.wit{
+background-color: #ffffff;
+}
+
+.titel.wit{
+background-color: #cccccc;
+}
+
+
+
+/* Einde kleuren */
+
 
 /* header boven */
 
@@ -142,6 +257,7 @@ padding: 15px 11px 15px 11px;
 color: red;
 font-size: 38px;
 text-decoration: none;
+position: relative;
 }
 
 .header .toevoegen{
@@ -181,31 +297,14 @@ margin-top: 4px;
 margin-right: 2px;
 outline: none;
 }
-/* Notitie aanmaken layout addnote.php */
-.makenote{
-width: 600px;
-height: 600px;
-background-color: white;
-margin: 5px;
-}
 
-.makenote .headernote,
-.makenote .headernote input[type=text]{
-background-color: #cccccc;
-height: 75px;
-}
-
-.makenote .headernote img{
-float: right;
-}
-
-.makenote .description textarea{
-width: 598px;
-height: 300px;
-}
-
-.makenote .tags{
-width: 600px;
+.header a{
+font-family: grand hotel;
+font-weight: normal;
+font-size: 28px;
+color: #cccccc;
+margin-right: 30px;
+text-decoration: none;
 }
 
 /* footer */

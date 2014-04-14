@@ -50,7 +50,7 @@ min-height: 700px;
 h2{
 margin: 10px 0 0 30px;
 padding: 0;
-font-family: pacifico;
+font-family: lobster two;
 font-weight: normal;
 font-size: 32px;
 color: #eeeeee;
@@ -167,86 +167,6 @@ float: right;
 padding: 3px;
 }
 
-
-
-/* Kleur notities */
-/* Groen */
-.bladernote.groen{
-background-color: #ccff66;
-}
-
-.titel.groen{
-background-color: #99ff00;
-}
-
-/* Rood */
-.bladernote.rood{
-background-color: #ff6666;
-}
-
-.titel.rood{
-background-color: #ff0000;
-}
-
-/* geel */
-.bladernote.geel{
-background-color: #ffff66;
-}
-
-.titel.geel{
-background-color: #ffff00;
-}
-
-/* Blauw */
-.bladernote.blauw{
-background-color: #66ccff;
-}
-
-.titel.blauw{
-background-color: #0099ff;
-}
-
-/* Oranje */
-.bladernote.oranje{
-background-color: #ffcc66;
-}
-
-.titel.oranje{
-background-color: #ff9900;
-}
-
-/* Paars */
-.bladernote.paars{
-background-color: #cc99ff;
-}
-
-.titel.paars{
-background-color: #cc66ff;
-}
-
-/* Roze */
-.bladernote.roze{
-background-color: #ff99ff;
-}
-
-.titel.roze{
-background-color: #ff33ff;
-}
-
-/* Wit */
-.bladernote.wit{
-background-color: #ffffff;
-}
-
-.titel.wit{
-background-color: #cccccc;
-}
-
-
-
-/* Einde kleuren */
-
-
 /* header boven */
 
 .header{
@@ -328,6 +248,8 @@ color: red;
 /* notitie aanmaken layout beheernote.php */
 .beheerlijst{
 background-color: white;
+margin-top: 50px;
+width: 600px;
 }
 
 .beheerlijst td,
@@ -365,5 +287,37 @@ width: auto;
 input[type=button],
 input[type=submit]{
 width: auto;
+margin-top: 5px;
+float: right;
 }
 /* einde layout beheer.php */
+
+
+
+
+/* Kleur notities */
+/* Groen */
+.bladernote.groen, .groen{background-color: #ccff66;}
+.titel.groen{background-color: #99ff00;}
+/* Rood */
+.bladernote.rood, .rood{background-color: #ff6666;}
+.titel.rood{background-color: #ff0000;}
+/* geel */
+.bladernote.geel, .geel{background-color: #ffff66;}
+.titel.geel{background-color: #ffff00;}
+/* Blauw */
+.bladernote.blauw, .blauw{background-color: #66ccff;}
+.titel.blauw{background-color: #0099ff;}
+/* Oranje */
+.bladernote.oranje, .oranje{background-color: #ffcc66;}
+.titel.oranje{background-color: #ff9900;}
+/* Paars */
+.bladernote.paars, .paars{background-color: #cc99ff;}
+.titel.paars{background-color: #cc66ff;}
+/* Roze */
+.bladernote.roze, .roze{background-color: #ff99ff;}
+.titel.roze{background-color: #ff33ff;}
+/* Wit */
+.bladernote.wit, .wit{background-color: #ffffff;}
+.titel.wit{background-color: #cccccc;}
+/* Einde kleuren */

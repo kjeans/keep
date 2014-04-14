@@ -83,8 +83,6 @@
 		<script type="text/javascript" src="scripts/typeahead.min.js"></script>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="eventCalendar_v054/css/eventCalendar.css">
-		<link rel="stylesheet" href="eventCalendar_v054/css/eventCalendar_theme_responsive.css">
 
 <script type="text/javascript">
             $(document).ready(function() {

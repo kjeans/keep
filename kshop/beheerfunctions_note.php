@@ -14,10 +14,10 @@
 			echo '</tr>';
 			if($notes) foreach($notes as $note){
 				echo '<tr>';
-				printf('<td>%s</td>', $note['title']);
-				printf('<td>%s</td>', $note['description']);
-				printf('<td><a href="?edit=%d">Bewerken</a></td>', $note['id']);
-				printf('<td><a href="?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')">Verwijderen</a></td>', $note['id']);				
+				printf('<td class="%s">%s</td>',$note['color'], $note['title']);
+				printf('<td class="%s">%s</td>',$note['color'], $note['description']);
+				printf('<td class="%s"><a href="?edit=%d">Bewerken</a></td>',$note['color'], $note['id']);
+				printf('<td class="%s"><a href="?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')">Verwijderen</a></td>',$note['color'], $note['id']);				
 				echo '</tr>';
 			}
 			echo '<tr>';
@@ -180,9 +180,12 @@
 			printf('<th>Foto:</th>');
 			printf('<td>%s</td>',self::getPicture($noteid));
 			echo '</tr>';
+			echo '<tr>';
+			echo '<th>&nbsp;</th>';
+			printf('<td><div class="formbutton">%s</div></td>', form::submit('Opslaan',''));
+			echo '</tr>';
 			echo '</table>';
 			//printf('<div class="formbutton"%s</div>', form::cancel('Annuleren',''));
-			printf('<div class="formbutton">%s</div>', form::submit('Opslaan',''));
 			echo '</form>';
 		}
 

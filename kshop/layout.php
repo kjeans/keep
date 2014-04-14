@@ -72,6 +72,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width" />
 		<title>Keep in Touch!</title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.js"></script>
@@ -82,6 +83,9 @@
 		<script type="text/javascript" src="scripts/typeahead.min.js"></script>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="eventCalendar_v054/css/eventCalendar.css">
+		<link rel="stylesheet" href="eventCalendar_v054/css/eventCalendar_theme_responsive.css">
+
 <script type="text/javascript">
             $(document).ready(function() {
 										

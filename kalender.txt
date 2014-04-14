@@ -1,5 +1,5 @@
 kalender
 jQuery's
 MagiCalender
-jQuery Frontier Calendar
 jMonthCalendar
+jQuery Event Calendar

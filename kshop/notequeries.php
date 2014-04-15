@@ -81,7 +81,7 @@
 		public static function queryPriveNotes($order){
 			$result = mysqli_query(db::getConn(), sprintf("
 	            SELECT * FROM notes
-				WHERE type = prive
+				WHERE type = 'prive'
 				ORDER BY %s
 				LIMIT 8
 			", $order));
@@ -95,7 +95,7 @@
 		public static function queryZakelijkNotes($order){
 			$result = mysqli_query(db::getConn(), sprintf("
 	            SELECT * FROM notes
-				WHERE type = zakelijk
+				WHERE type = 'zakelijk'
 				ORDER BY %s
 				LIMIT 8
 			", $order));

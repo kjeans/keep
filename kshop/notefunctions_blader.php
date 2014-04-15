@@ -42,16 +42,16 @@
 			printf('<a href="beheernote.php?edit=%d">', $note['id']);
 			printf('<table class="bladernote %s">', $note['color']);
 			if($note['reminder'] == 1 && $note['favorite'] == 1){
-				printf('<tr><td class="titel %s">%s <img src="../site/images/reminderon.png"><img src="../site/images/favoriteon.png"></td></tr>',  $note['color'], $note['title']);			
+				printf('<tr><td class="titel %s">%s <img src="../site/images/reminderon.png"><img src="../site/images/favoriteon.png" value="1"></td></tr>',  $note['color'], $note['title']);			
 			}
 			elseif($note['reminder'] == 1 && $note['favorite'] == 0){
-				printf('<tr><td class="titel %s">%s <img src="../site/images/reminderon.png"><img src="../site/images/favoriteoff.png"></td></tr>',  $note['color'], $note['title']);			
+				printf('<tr><td class="titel %s">%s <img src="../site/images/reminderon.png"><img src="../site/images/favoriteoff.png" value="0"></td></tr>',  $note['color'], $note['title']);			
 			}
 			elseif($note['reminder'] == 0 && $note['favorite'] == 1){
-				printf('<tr><td class="titel %s">%s<img src="../site/images/favoriteon.png"></td></tr>',  $note['color'], $note['title']);			
+				printf('<tr><td class="titel %s">%s<img src="../site/images/favoriteon.png" value="1"></td></tr>',  $note['color'], $note['title']);			
 			}
 			elseif($note['reminder'] == 0 && $note['favorite'] == 0){
-				printf('<tr><td class="titel %s">%s <img src="../site/images/favoriteoff.png"></td></tr>',  $note['color'], $note['title']);	
+				printf('<tr><td class="titel %s">%s <img src="../site/images/favoriteoff.png" value="0"></td></tr>',  $note['color'], $note['title']);	
 			}
 			
 				printf('<tr><td class="omschrijving">%s</td></tr>', ($note['description']));

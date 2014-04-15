@@ -3,17 +3,14 @@
 
 	class Bladermenu {
 
-		public static function drawBladermenu($actieveCategorie=0) {
-
-			$categorie = $actieveCategorie;
-			$echtecategorie = $categorie;
+		public static function drawBladermenu() {
 
 			printf('<div class="sidebarleft">');
 			printf( '<ul>');
 			printf( '<li><span><a href="#calendar.php">Kalender</a></span></li>');
-			printf( '<li><span><a href="#id=3">Archief</a></span></li>');
-			printf( '<li><span><a href="#?id=1">Privé</a></span></li>');
-			printf( '<li><span><a href="#?id=2">Zakelijk</a></span></li>');
+			printf( '<li><span><a href="#?id=3">Archief</a></span></li>');
+			printf( '<li><span><a href="?id=1">Privé</a></span></li>');
+			printf( '<li><span><a href="?id=2">Zakelijk</a></span></li>');
 			printf( '<li><span><a href="#?id=4">Foto, video en bijlagen</a></span></li>');
 			printf( '<li><span><a href="#contactlist.php">Contactpersonen</a></span></li>');	
 			printf( '<li class="emptylast"><span><a href="#" onclick="return false;">&nbsp;</a></span></li>');

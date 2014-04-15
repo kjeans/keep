@@ -59,7 +59,7 @@
 					printf('<tr><td class="foto"><img src="%s" alt=" "></td></tr>',$primary);
 				}
 			
-			printf('<tr><td class="tags">%s</td></tr>', tags($note['tags']));
+			printf('<tr><td>%s</td></tr>', tags($note['tags']));
 			printf('<tr><td class="trash"><a href="beheernote.php?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')" ><img src="../site/images/trash_can.png"></a></td></tr>', $note['id']);
 			printf('</table>');
 			printf('</a>');

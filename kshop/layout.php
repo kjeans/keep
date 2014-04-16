@@ -34,22 +34,6 @@
             });
 </script>
 
-<script>
-/*
-		var date = new Date();
-
-		var day = date.getDate();
-		var month = date.getMonth() + 1;
-		var year = date.getFullYear();
-
-		if (month < 10) month = "0" + month;
-		if (day < 10) day = "0" + day;
-
-		var today = year + "-" + month + "-" + day;       
-		document.getElementById("theDate").value = today;
-*/
-</script>
-
 <script type="text/javascript">
 				var _gaq = _gaq || [];
 				_gaq.push(['_setAccount', 'UA-45946470-1']);
@@ -128,7 +112,7 @@
 				} else {
 						$('tr.datum').hide();
 						$('tr.tijd').hide();
-				}
+				}				
             });
 </script>
 	</head>

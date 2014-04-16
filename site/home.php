@@ -10,8 +10,8 @@ require '../kshop/include.php';
 	$regel1 = notequeries::queryHomeNotes('notes.datetime DESC'); // nieuwste notes
 	$regel2 = notequeries::queryPriveNotes('notes.datetime DESC'); // nieuwste prive notes
 	$regel3 = notequeries::queryZakelijkNotes('notes.datetime DESC'); // nieuwste zakelijke notes
-	$regel4 = notequeries::queryRemindNotes('notes.datetime DESC'); // nieuwste herinnering notes
-	$regel5 = notequeries::queryArchivedNotes('notes.datetime DESC'); // nieuwste herinnering notes
+	//$regel4 = notequeries::queryRemindNotes('notes.datetime DESC'); // nieuwste herinnering notes
+	//$regel5 = notequeries::queryArchivedNotes('notes.datetime DESC'); // nieuwste herinnering notes
 	
 		if($site = 'home.php'){
 			printf('<h2>Nieuwste notities</h2>');

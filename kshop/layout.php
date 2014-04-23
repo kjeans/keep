@@ -7,7 +7,7 @@
 
 		</div>
 		<div class="footer">
-			<p>&copy; Copyright 2014 | Kate Schirm &amp; Adem K</p>
+			<p>&copy; Copyright 2014 | Kate Schirm</p>
 		</div>
 		
 <script type="text/javascript">
@@ -33,18 +33,6 @@
             );
             });
 </script>
-
-<script type="text/javascript">
-				var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-45946470-1']);
-				_gaq.push(['_setDomainName', 'zooey.nl']);
-				_gaq.push(['_trackPageview']);
-				(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-				})();
-</script>
 		
 	</body>
 </html>
@@ -65,6 +53,7 @@
         <script type="text/javascript" src="scripts/fancybox/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" src="scripts/hogan.js"></script>
 		<script type="text/javascript" src="scripts/typeahead.min.js"></script>
+		
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 

@@ -3,7 +3,7 @@
 	class imageResize {
 
 		public static function process_upload_resize($fotoid, $fotodir, $originalfile, $imagetype){
-			self::process_upload_resize_blader($fotoid, $fotodir, $originalfile, $imagetype, 190, 142, 'b');
+			self::process_upload_resize_blader($fotoid, $fotodir, $originalfile, $imagetype, 250, 188, 'b');
 			self::process_upload_resize_blader($fotoid, $fotodir, $originalfile, $imagetype, 90, 67, 'm');
 			self::process_upload_resize_blader($fotoid, $fotodir, $originalfile, $imagetype, 48, 36, 's');
 			self::process_upload_resize_detail($fotoid, $fotodir, $originalfile, $imagetype);

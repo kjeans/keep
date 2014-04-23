@@ -35,13 +35,12 @@
 		protected static function printNote($note){
 			$images = notequeries::getNotePictures($note['id'], true);
 			$primary  = NULL;
-			$char = 20;
 			foreach($images as $image){
 				$primary = $image['bladerfoto'];
 			}
 			
 			printf('<a href="beheernote.php?edit=%d">', $note['id']);
-			printf('<table class="bladernote %s">', $note['color']);
+			printf('<table class="bladernote %s draggable">', $note['color']);
 			
 			printf('<tr><td class="titel %s">%s', $note['color'], $note['title']);
 			if($note['reminder'] == 1){
@@ -49,24 +48,26 @@
 			}
 			
 			if($note['favorite'] == 1){
-				printf('<a onclick="return confirm(\'%s\')" class="favorite"><img src="../site/images/favoriteon.png"></a>', $note['favorite']);	
+				printf('<a onclick="return confirm(\'%s\')" id="favorite"><img src="../site/images/favoriteon.png"></a>', $note['favorite']);	
 			}
 			elseif($note['favorite'] == 0){
-				printf('<a onclick="return confirm(\'%s\')" class="favorite"><img src="../site/images/favoriteoff.png"></a>', $note['favorite']);
+				printf('<a onclick="return confirm(\'%s\')" id="favorite"><img src="../site/images/favoriteoff.png"></a>', $note['favorite']);
 			}
 			printf('</td></tr>');
 			
-			printf('<tr><td class="omschrijving"><p>%s</p></td></tr>', ($note['description']));
 				
 			
 			if (!is_null($primary)){
+				printf('<tr><td class="omschrijving"><p>%s</p></td></tr>', ($note['description']));
 				printf('<tr><td class="foto"><img src="%s" alt=" "></td></tr>',$primary);
 			}
+			else{
+				printf('<tr><td class="omschrijvinglang"><p>%s</p></td></tr>', ($note['description']));				
+			}
 			
-			
-			
-			printf('<tr><td>%s</td></tr>', tags($note['tags']));
-			printf('<tr><td class="trash"><a href="beheernote.php?delete=%d" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')" ><img src="../site/images/trash_can.png"></a></td></tr>',$note['id']);
+			printf('<tr><td class="woorden">%s', tags($note['tags']));
+				printf('<a href="beheernote.php?delete=%d" class="trash" onclick="return confirm(\'Weet u zeker dat u dit note wilt verwijderen ?\')" ><img src="../site/images/trash_can.png"></a>',$note['id']);
+			printf('</td></tr>');
 			printf('</table>');
 			printf('</a>');
 		}	

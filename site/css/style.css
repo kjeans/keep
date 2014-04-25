@@ -105,6 +105,7 @@ border: none;
 font-size: 18px;
 border: 3px solid #cccccc;
 margin: 10px;
+width: 200px;
 }
 
 
@@ -132,11 +133,12 @@ color: black;
 
 .bladernote .titel{
 font-size: 24px;
-padding: 1px 3px 0 3px;
+padding: 1px 3px 0 25px;
 color: black;
 font-family: pacifico;
 font-size: 18px;
 width: 300px;
+height: 35px;
 }
 
 .bladernote .titel img{
@@ -151,14 +153,14 @@ font-family: blokletters balpen;
 font-size: 12px;
 margin: 0;
 padding: 2px 3px 0 25px;
-height: 238px;
+height: 233px;
 }
 
 .bladernote .omschrijving p{
 color: black;
 font-family: blokletters balpen;
 font-size: 12px;
-height: 40px;
+height: 35px;
 padding: 2px 3px 0 25px;
 }
 
@@ -203,13 +205,12 @@ background-color: #333333;
 padding: 0;
 margin: 0;
 border-bottom: 2px solid: #666666;
-position: relative;
 }
 
 .header .keep{
 font-family: grand hotel;
 background-color: black;
-padding: 15px 11px 10px 11px;
+padding: 15px 11px 0 11px;
 color: red;
 font-size: 38px;
 text-decoration: none;
@@ -223,7 +224,7 @@ padding: 15px;
 .search {
 position: relative;
 float: right;
-margin: 15px;
+margin: 10px 10px 5px 0;
 }
 
 .searchbox{
@@ -253,7 +254,6 @@ margin-top: 4px;
 margin-right: 2px;
 outline: none;
 }
-
 .header a{
 font-family: lobster two;
 font-weight: normal;
@@ -261,6 +261,11 @@ font-size: 28px;
 color: #cccccc;
 margin-right: 30px;
 text-decoration: none;
+}
+
+.header select{
+margin: 15px 0 10px 0;
+position: absolute;
 }
 
 /* footer */
@@ -305,9 +310,9 @@ float: left;
 display: block;
 }
 
-.beheerlijst input,
-.beheerlijst textarea{
-width: 500px;
+input,
+textarea{
+width: 400px;
 }
 
 .textarea{

@@ -276,15 +276,17 @@ color: red;
 
 /* notitie aanmaken layout beheernote.php */
 .beheerlijst{
-background-color: white;
 margin-top: 50px;
 width: 600px;
+border-collapse: collapse;
 }
 
 .beheerlijst td,
 .beheerlijst th{
 padding: 3px 5px;
+margin: 0;
 text-align: left;
+height: 30px;
 }
 
 .beheerfoto{
@@ -326,27 +328,27 @@ float: right;
 
 /* Kleur notities */
 /* Groen */
-.bladernote.groen, .groen{background-color: #ccff66;}
-.titel.groen{background-color: #99ff00;}
+.bladernote.groen, .o.beheerlijst.groen{background-color: #ccff66;}
+.titel.groen, .groen{background-color: #99ff00;}
 /* Rood */
-.bladernote.rood, .rood{background-color: #ff6666;}
-.titel.rood{background-color: #ff0000;}
+.bladernote.rood, .o.rood{background-color: #ff6666;}
+.titel.rood, .rood{background-color: #ff0000;}
 /* geel */
-.bladernote.geel, .geel{background-color: #ffff66;}
-.titel.geel{background-color: #ffff00;}
+.bladernote.geel{background-color: #ffff66;}
+.titel.geel, .geel{background-color: #ffff00;}
 /* Blauw */
-.bladernote.blauw, .blauw{background-color: #66ccff;}
-.titel.blauw{background-color: #0099ff;}
+.bladernote.blauw{background-color: #66ccff;}
+.titel.blauw, .blauw{background-color: #0099ff;}
 /* Oranje */
-.bladernote.oranje, .oranje{background-color: #ffcc66;}
-.titel.oranje{background-color: #ff9900;}
+.bladernote.oranje{background-color: #ffcc66;}
+.titel.oranje, .oranje{background-color: #ff9900;}
 /* Paars */
-.bladernote.paars, .paars{background-color: #cc99ff;}
-.titel.paars{background-color: #cc66ff;}
+.bladernote.paars{background-color: #cc99ff;}
+.titel.paars, .paars{background-color: #cc66ff;}
 /* Roze */
-.bladernote.roze, .roze{background-color: #ff99ff;}
-.titel.roze{background-color: #ff33ff;}
+.bladernote.roze{background-color: #ff99ff;}
+.titel.roze, .roze{background-color: #ff33ff;}
 /* Wit */
-.bladernote.wit, .wit{background-color: #ffffff;}
-.titel.wit{background-color: #cccccc;}
+.bladernote.wit{background-color: #ffffff;}
+.titel.wit, .wit{background-color: #cccccc;}
 /* Einde kleuren */

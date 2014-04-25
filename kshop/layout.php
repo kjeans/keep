@@ -54,7 +54,6 @@
 		<script type="text/javascript" src="scripts/hogan.js"></script>
 		<script type="text/javascript" src="scripts/typeahead.min.js"></script>
 		
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script type="text/javascript">
@@ -101,7 +100,7 @@
 				} else {
 						$('tr.datum').hide();
 						$('tr.tijd').hide();
-				}				
+				}	
             });
 </script>
 	</head>

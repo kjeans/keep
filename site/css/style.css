@@ -202,7 +202,6 @@ float: right;
 background-color: #333333;
 padding: 0;
 margin: 0;
-height: 67px;
 border-bottom: 2px solid: #666666;
 position: relative;
 }
@@ -210,7 +209,7 @@ position: relative;
 .header .keep{
 font-family: grand hotel;
 background-color: black;
-padding: 15px 11px 15px 11px;
+padding: 15px 11px 10px 11px;
 color: red;
 font-size: 38px;
 text-decoration: none;
@@ -275,9 +274,15 @@ color: red;
 
 
 /* notitie aanmaken layout beheernote.php */
+
+form.o{
+width: 700px;
+margin-left: 200px;
+}
+
 .beheerlijst{
-margin-top: 50px;
-width: 600px;
+margin-top: 5px;
+width: 700px;
 border-collapse: collapse;
 }
 
@@ -291,11 +296,9 @@ height: 30px;
 
 .beheerfoto{
 padding: 5px;
-background-image: url(background/lightblue.png);
-background-size: contain;
+background-color: #ff0000;
 margin: 0 10px 10px 0;
 float: left;
-text-align: center;
 }
 
 .beheerfoto img{
@@ -304,7 +307,7 @@ display: block;
 
 .beheerlijst input,
 .beheerlijst textarea{
-width: 400px;
+width: 500px;
 }
 
 .textarea{
@@ -328,7 +331,7 @@ float: right;
 
 /* Kleur notities */
 /* Groen */
-.bladernote.groen, .o.beheerlijst.groen{background-color: #ccff66;}
+.bladernote.groen, .o.groen{background-color: #ccff66;}
 .titel.groen, .groen{background-color: #99ff00;}
 /* Rood */
 .bladernote.rood, .o.rood{background-color: #ff6666;}

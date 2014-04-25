@@ -106,4 +106,52 @@
 			return $data;
 		}
 		
+		
+		/*********************************************************************************
+		herinnering en gearchiveerd en favorieten
+		*********************************************************************************/
+		
+		
+		public static function queryHerinneringNotes($order){
+			$result = mysqli_query(db::getConn(), sprintf("
+	            SELECT * FROM notes
+				WHERE reminder = 1
+				ORDER BY %s
+				LIMIT 8
+			", $order));
+			$data = array();
+			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
+				$data[] = $query;
+			}
+			return $data;
+		}
+		
+		public static function queryArchivedNotes($order){
+			$result = mysqli_query(db::getConn(), sprintf("
+	            SELECT * FROM notes
+				WHERE archived = 1
+				ORDER BY %s
+				LIMIT 8
+			", $order));
+			$data = array();
+			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
+				$data[] = $query;
+			}
+			return $data;
+		}
+		
+		public static function queryFavoriteNotes($order){
+			$result = mysqli_query(db::getConn(), sprintf("
+	            SELECT * FROM notes
+				WHERE favorite = 1
+				ORDER BY %s
+				LIMIT 8
+			", $order));
+			$data = array();
+			if (mysqli_num_rows($result) > 0) while($query = mysqli_fetch_assoc($result)){
+				$data[] = $query;
+			}
+			return $data;
+		}
+		
 	}

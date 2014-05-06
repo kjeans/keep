@@ -44,7 +44,7 @@
 			
 			printf('<tr><td class="titel %s">%s', $note['color'], $note['title']);
 			if($note['reminder'] == 1){
-				printf('<img src="../site/images/reminderon.png">');			
+				printf('<a onclick="alert(\'%s %s\')"><img src="../site/images/reminderon.png"></a>', $note['date'], $note['time']);			
 			}
 			
 			if($note['favorite'] == 1){

@@ -112,9 +112,9 @@
 				printf('		<a href="home.php" class="keep">Keep in Touch!<img src="images/notesicon.png"/></a>');
 				printf('		<a href="beheernote.php" class="toevoegen"><img src="images/noteplus1.png"></a>');
 				printf('		<a href="home.php">Meest recent</a>');
-				printf('		<a href="home.php?id=1">Herinnering</a>');
-				printf('		<a href="home.php?id=2">Afgerond</a>');
-				printf('		<a href="home.php?id=3">Favorieten</a>');
+				printf('		<a href="home.php?reminder=1">Herinnering</a>');
+				printf('		<a href="home.php?archived=1">Afgerond</a>');
+				printf('		<a href="home.php?favorite=1">Favorieten</a>');
 				printf('		<select>');
 				printf('			<option value="1">Contactpersoon oplopend</option>');
 				printf('			<option value="2">Contactpersoon aflopend</option>');
